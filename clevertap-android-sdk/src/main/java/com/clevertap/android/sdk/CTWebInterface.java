@@ -233,4 +233,19 @@ public class CTWebInterface {
             }
         }
     }
+
+    /**
+     * Method to be called from WebView Javascript to call api hit
+     * @parama json Stringified JSON Object of profile properties
+     */
+    @JavascriptInterface
+    @SuppressWarnings("unused")
+    public void sendGradeupAPIHit(String jsonObject){
+        CleverTapAPI cleverTapAPI = weakReference.get();
+        if (cleverTapAPI == null) {
+            Logger.d("CleverTap Instance is null.");
+        } else {
+            cleverTapAPI.getInAppCallback().onInAppInteracted(jsonObject);
+        }
+    }
 }

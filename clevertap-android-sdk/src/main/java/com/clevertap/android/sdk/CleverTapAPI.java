@@ -127,6 +127,7 @@ public class CleverTapAPI implements CTInAppNotification.CTInAppNotificationList
     private WeakReference<InboxMessageButtonListener> inboxMessageButtonListener;
 
     private WeakReference<DisplayUnitListener> displayUnitListenerWeakReference;
+    private InAppCallback inAppCallback;
 
     // Initialize
     private CleverTapAPI(final Context context, final CleverTapInstanceConfig config, String cleverTapID) {
@@ -1405,6 +1406,14 @@ public class CleverTapAPI implements CTInAppNotification.CTInAppNotificationList
             getConfigLogger().debug(getAccountId(), "Notifying devicePushTokenDidRefresh: " + token);
             tokenRefreshListener.devicePushTokenDidRefresh(token, type);
         }
+    }
+
+    public InAppCallback getInAppCallback() {
+        return inAppCallback;
+    }
+
+    public void setInAppCallback(InAppCallback inAppCallback) {
+        this.inAppCallback = inAppCallback;
     }
 
     //Push
