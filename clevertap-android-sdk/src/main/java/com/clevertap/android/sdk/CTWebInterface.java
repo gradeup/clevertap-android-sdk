@@ -1,5 +1,6 @@
 package com.clevertap.android.sdk;
 
+import android.util.Log;
 import android.webkit.JavascriptInterface;
 
 import org.json.JSONArray;
@@ -245,6 +246,7 @@ public class CTWebInterface {
         if (cleverTapAPI == null) {
             Logger.d("CleverTap Instance is null.");
         } else {
+            Log.e("Gradeup", ""+jsonObject);
             cleverTapAPI.getInAppCallback().onInAppInteracted(jsonObject);
         }
     }
